@@ -4,5 +4,54 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #87d9fa;
+}
+
+.costumeAttr {
+  background-color: rgb(250, 73, 161);
+  width: 120px;
+  margin: 6px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.822);
+  padding: 7px;
+  border-radius: 5px;
+  font-weight:normal;
+
+}
+
+.nameone {
+  width: 150px;
+  margin: 6px;
+  text-align: center;
+  padding: 7px;
+  border-radius: 5px;
+  font-weight:normal;
+
+}
+
+#titlestyle{
+  color: #fa414a;
+  font-weight: 500;
+  font-family:'Times New Roman', Times, serif;
+  text-decoration:solid;
+}
+
+.variety{
+  margin-right: 4px;
+  margin-bottom: 0;
+  padding: 7px;
+  justify-content:center;
+  font-weight: bold;
+  border-bottom: 3px solid rgb(185, 85, 252);
+  border-left: 3px solid  rgb(15, 17, 13);
+  background-color: rgb(19, 252, 39);
+  border-radius: 3px;
+}
+.stylesheetnew{
+    border-top: 3px solid rgb(250, 212, 107);
+    width: 60%;
+}
+.variety:hover{
+  background-color: rgb(247, 14, 157);
+  color: rgb(99, 165, 252);
 }
