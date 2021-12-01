@@ -33,14 +33,24 @@ exports.costume_create_post = async function(req, res) {
         res.send(result); 
     } 
     catch(err){ 
-        res.status(500); 
-        res.send(`{"error": ${err}}`); 
+        res.status(500);
+        let error = JSON.stringify({error: err._message})
+        console.log(error)
+        res.send(error);
     }   
 }; 
  
 // Handle Costume delete form on DELETE. 
-exports.costume_delete = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Costume delete DELETE ' + req.params.id); 
+exports.costume_delete = async function(req, res) { 
+    console.log("delete "  + req.params.id) 
+    try { 
+        result = await Costume.findByIdAndDelete( req.params.id) 
+        console.log("Removed " + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": Error deleting ${err}}`); 
+    } 
 }; 
  
 //Handle Costume update form on PUT. 
@@ -85,19 +95,6 @@ exports.costume_detail = async function(req, res) {
         res.send(`{"error": document for id ${req.params.id} not found`); 
     } 
 };
-
-// Handle Costume delete on DELETE.
-exports.costume_delete = async function(req, res) {
-    console.log("delete " + req.params.id)
-    try {
-    result = await Costume.findByIdAndDelete( req.params.id)
-    console.log("Removed " + result)
-    res.send(result)
-    } catch (err) {
-    res.status(500)
-    res.send(`{"error": Error deleting ${err}}`);
-    }
-    };
 
 // Handle a show one view with id specified by query
 exports.costume_view_one_Page = async function(req, res) {
@@ -151,6 +148,8 @@ exports.costume_delete_Page = async function(req, res) {
     }
     catch(err){
     res.status(500)
-    res.send(`{'error': '${err}'}`);
+    let error = JSON.stringify({error: err._message})
+    console.log(error)
+    res.send(error);
     }
     };
